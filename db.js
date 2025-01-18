@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 // Define MongoDB connection URL
-const mongoURL = "mongodb://127.0.0.1:27017/hotels"; // Remove the space here
+
+
+ // Remove the space here
+//  This is for local storage in our system
+// const mongoURL = "mongodb://127.0.0.1:27017/hotels";
+// const Localurl = process.env.LOCAL_URL;
+
+// This is for mongodb atlas which will store the data online 
+const mongoURL = process.env.DB_URL;
+
 
 // Setup MongoDB connection
 mongoose.connect(mongoURL, {

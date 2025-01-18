@@ -4,6 +4,7 @@ const Worker = require('./models/Worker')
 const menuItem = require('./models/menuItem')
 const db = require('./db')
 const bodyParser = require('body-parser');
+require('dotenv').config();
 app.use(bodyParser.json());
 // Importing router files
 const workerRoute = require('./routes/workerRoute')
@@ -18,8 +19,9 @@ app.use('/worker',workerRoute);
 app.use('/menu',menuItemRoutes);
 
 
+const PORT = process.env.PORT || 3000;
 
 // Listening on port 300 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('Server is running on port 3000 !!');
 })
